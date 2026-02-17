@@ -1,4 +1,3 @@
-<script>
   window.TrafficScriptConfig = {
     showTrafficStats: true,    // 显示流量统计, 默认开启
     insertAfter: true,         // 如果开启总流量卡片, 是否放置在总流量卡片后面, 默认为true
@@ -515,4 +514,3 @@ const domObserver = (() => {
     if (trafficTimer) clearInterval(trafficTimer);
   });
 })();
-</script>
