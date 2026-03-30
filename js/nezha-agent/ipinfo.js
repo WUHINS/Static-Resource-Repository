@@ -188,18 +188,7 @@
     if (!ip) return '无法解析IP信息';
 
     const isIPv4 = ip.includes('.') && !ip.includes(':');
-    // const netLabel = isIPv4 ? ip : 'IPv6 network';
-    const isIPv6 = ip.includes(':');
-    let netLabel;
-    if (isIPv4) {
-      netLabel = ip;
-    } else if (isIPv6) {
-      // IPv6 只显示前三段
-      const segments = ip.split(':');
-      netLabel = segments.slice(0, 3).join(':');
-    } else {
-      netLabel = ip;
-    }
+    const netLabel = isIPv4 ? ip : 'IPv6 network';
 
     // 移动端：只显示地区
     if (!isDesktop) {
