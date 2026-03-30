@@ -229,15 +229,13 @@
         flex-direction: column;
         align-items: center;
         gap: 8px;
-        padding: 16px 10px;
+        padding: 16px 12px;
         border-radius: 16px;
         background: rgba(255,255,255,.96);
         box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         backdrop-filter: blur(16px);
         border: 1px solid rgba(220,220,220,.9);
-        max-height: calc(100vh - 24px);
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
+        max-width: 200px;
       }
       #${BAR_ID} .ip-icon {
         width: 20px;
@@ -246,7 +244,6 @@
         border: 2px solid #1a73e8;
         position: relative;
         flex: 0 0 auto;
-        transform: rotate(-90deg);
       }
       #${BAR_ID} .ip-icon::before {
         content: "";
@@ -256,20 +253,18 @@
         background: #1a73e8;
       }
       #${BAR_ID} .ip-text {
-        font-size: 13px;
+        font-size: 12px;
         color: #333;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-height: calc(100vh - 120px);
-        writing-mode: vertical-rl;
-        text-orientation: mixed;
+        word-break: break-all;
+        text-align: center;
+        line-height: 1.5;
+        max-width: 160px;
       }
       #${BAR_ID} .ip-l { 
         color: #1a73e8; 
         font-weight: 600; 
+        display: block;
         margin-bottom: 4px;
-        writing-mode: horizontal-tb;
       }
       #${BAR_ID} .ip-net {
         font-weight: 700;
@@ -277,11 +272,12 @@
         user-select: none;
         transition: opacity .22s ease, transform .22s ease, filter .22s ease;
         will-change: opacity, transform;
-        writing-mode: horizontal-tb;
+        display: block;
+        margin-top: 4px;
       }
       #${BAR_ID} .ip-net.switching {
         opacity: 0;
-        transform: translateX(6px);
+        transform: translateY(6px);
         filter: blur(1px);
       }
       #${BAR_ID} .lat-excellent { color: #16a34a; }
@@ -290,8 +286,8 @@
       #${BAR_ID} .lat-bad       { color: #ef4444; }
       @media (max-width: 600px) {
         #${BAR_ID} { left: 6px; }
-        #${BAR_ID} .ip-inner { padding: 12px 6px; }
-        #${BAR_ID} .ip-text { font-size: 12px; }
+        #${BAR_ID} .ip-inner { padding: 12px 8px; }
+        #${BAR_ID} .ip-text { font-size: 11px; max-width: 140px; }
       }
     `);
 
@@ -302,11 +298,9 @@
       <div class="ip-inner">
         <div class="ip-icon"></div>
         <div class="ip-text">
-          <span class="ip-l">IP:</span>
-          <span id="ip-val" title="">
-            <span id="ip-base"></span>
-            <span id="ip-net" class="ip-net" aria-label="点击切换测速点"></span>
-          </span>
+          <span class="ip-l">Your IP</span>
+          <span id="ip-base"></span>
+          <span id="ip-net" class="ip-net" aria-label="点击切换测速点"></span>
         </div>
       </div>
     `;
